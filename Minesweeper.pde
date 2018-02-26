@@ -39,16 +39,19 @@ public void draw ()
 }
 public boolean isWon()
 {
-  if
+    for (int r=0; r<NUM_ROWS; r++)
+    for (int c=0; c<NUM_COLS; c++)
+  if(buttons[r][c].marked==false)
+  return true;
   return false;
 }
 public void displayLosingMessage()
 {
-  //your code here
+ setLabel("You Lose");
 }
 public void displayWinningMessage()
 {
-  //your code here
+ setLabel("You Win");
 }
 
 public class MSButton
