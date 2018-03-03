@@ -25,7 +25,6 @@ public void setBombs()
     if (!bombs.contains(r)&&!bombs.contains(c))
     {
       bombs.add(buttons[r][c]);
-      System.out.println(r+","+c);
     }
   }
 }
@@ -40,11 +39,17 @@ public void draw ()
 }
 public boolean isWon()
 {
- 
+ int count=0;
+ int test =(NUM_ROWS*NUM_COLS)-NUM_BOMBS;
+
         for (int r=0; r<buttons.length; r++)
     for (int c=0; c<buttons[r].length; c++)
     if (!bombs.contains(buttons[r][c]))
         if(buttons[r][c].clicked)
+        count++;
+        // System.out.println("count:"+count);
+      //   System.out.println("boolean for is Won:"+test);
+        if(count == (NUM_ROWS*NUM_COLS)-NUM_BOMBS)
         return true;
   return false;
     
@@ -125,19 +130,19 @@ public class MSButton
       setLabel(""+countBombs(this.r, this.c));
 
     if (isValid(r, c-1) && !buttons[r][c-1].isClicked()&&countBombs(this.r, this.c)==0) {
-      System.out.println("1");
+     // System.out.println("1");
       buttons[r][c-1].mousePressed();
     }
     if (isValid(r-1, c) && !buttons[r-1][c].isClicked()&&countBombs(this.r, this.c)==0) {
-      System.out.println("2");
+     // System.out.println("2");
       buttons[r-1][c].mousePressed();
     }
     if (isValid(r, c+1) && !buttons[r][c+1].isClicked()&&countBombs(this.r, this.c)==0) {
-      System.out.println("3");
+     // System.out.println("3");
       buttons[r][c+1].mousePressed();
     }
     if (isValid(r+1, c) && !buttons[r+1][c].isClicked()&&countBombs(this.r, this.c)==0) {
-      System.out.println("4");
+     // System.out.println("4");
       buttons[r+1][c].mousePressed();
     }
   }
